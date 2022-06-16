@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Search Form</h2>
+<form action="/search.html" method="post">
+  <label for="search">First name:</label><br>
+  <input type="text" id="search" name="search" value="Try searching for barbecue" autofocus required><br><br>
+  <input type="submit" value="Submit">
+</form>
+{% endblock %}

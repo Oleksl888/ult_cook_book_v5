@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 style="text-align: center">Register for full user experience from Ultimate cookbook</h2>
+<form style="text-align: center" action="/register.html" method="post">
+  <label for="name">Enter your name here:</label><br>
+  <input type="text" id="name" name="name" placeholder="Alex" value="" autofocus required><br>
+  <label for="email">Enter email:</label><br>
+  <input type="email" id="email" name="email" placeholder="email@somemail.com" value="" required><br>
+    <label for="password">Enter Password:</label><br>
+  <input type="password" id="password" name="pass" value="" required><br>
+  <input type="submit" value="Register">
+</form>
+{% endblock %}

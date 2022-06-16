@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content%}
+{% if data is sequence %}
+<table>
+    <tr>
+        <th style="text-align:center" colspan="5">Click on ingridient to search for available recepies</th>
+    </tr>
+{% for ingridient in data %}
+    {% if loop.index0 == 0 or loop.index0 % 5 == 0 %}
+    <tr>
+        {% endif %}
+        <td><a href="/search/{{ingridient[0].strip().replace(' ', '_')}}">{{ ingridient[0].title() }}</a></td>
+    {%if loop.index0 % 5 == 4 or loop.last %}
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+{% elif data is string %}
+<b> {{ data }} </b>
+{% else %}
+<b>SOMETHING UNEXPLAINABLE HAPPENNED</b>
+{% endif %}
+{% endblock%}

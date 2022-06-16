@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 style="text-align: center">Login to get access token</h2>
+<form style="text-align: center" action="/api/login" method="post">
+  <label for="mail">Enter your email:</label><br>
+  <input type="text" id="mail" name="email" placeholder="alex@mail.com" value="" autofocus required><br>
+    <label for="pass">Enter Password:</label><br>
+  <input type="password" id="pass" name="password" value="" required><br>
+  <input type="submit" value="Login">
+</form>
+<h1 style="text-align:center">New to the website? Please <a href="/api/register.html">register</a> here.</h1>
+{% endblock %}

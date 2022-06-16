@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if not user %}
+<h2 style="color: blue">Please <a href="{{ url_for('register') }}">register</a> or <a href="{{ url_for('login') }}">login</a> to leave a comment</h2>
+{% else %}
+<div>
+  Hello <b>{{ user }}</b>, it's been <b>{{ tdelta }}</b> since your last visit
+</div>
+<br>
+<div>
+  <img src="{{ url_for('static', filename=img) }}">
+</div>
+<br>
+<div style="background-color: yellow">
+  <b>Upload your profile picture here</b><br>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+    <label for="file">Upload userpic</label>
+    <input type="file" id="file" name="userfile" accept="image/jpeg, image/png" size="524288" required><br>
+    <input type="submit" value="Upload">
+  </form>
+</div>
+<div>
+  <b>Make about section</b>
+</div>
+<div>
+  <b>Load all user comments</b>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 style="text-align: center">Register to get full access</h2>
+<form style="text-align: center" action="/api/register" method="post">
+  <label for="name">Enter your name here:</label><br>
+  <input type="text" id="name" name="username" placeholder="User" value="" autofocus required><br>
+  <label for="mail">Enter your email:</label><br>
+  <input type="text" id="mail" name="email" placeholder="user@mail.com" value="" required><br>
+    <label for="pass">Enter Password:</label><br>
+  <input type="password" id="pass" name="password" value="" required><br>
+  <input type="submit" value="Register">
+</form>
+{% endblock %}

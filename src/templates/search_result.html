@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if data is mapping %}
+<table>
+    <tr>
+        <th>Recipe</th>
+        <th>Ingridients</th>
+    </tr>
+{% for k, v in data.items() %}
+    <tr>
+        <td><a href="/recipe/{{k.replace(' ', '_')}}">{{ k.title() }}</a></td>
+        <td>
+        {% for ingridient in v %}
+        <a href="/search/{{ingridient.strip().replace(' ', '_')}}">{{ ingridient.strip().title() }}</a>
+            {% endfor %}
+        </td>
+    </tr>
+{% endfor %}
+</table>
+{% elif data is string %}
+<h2> {{ data }} </h2>
+{% else %}
+<h2>Unknown data format</h2>
+{% endif %}
+{% endblock %}

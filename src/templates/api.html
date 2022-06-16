@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>API</h1>
+<h2>Access</h2>
+<div>It is free to access certain endpoints of the API.
+Without access key you can request recipes, ingridients and feedback endpoints.
+If you decide to use full access, you have to request an <a href="/api/login.html">access key</a>.
+Using this key, you can add feedback to the website and individual recipes. To access user information and make changes to the website you must have a token with admin priveleges set.
+</div>
+<h2>Base endpoint and example</h2>
+You can use the following endpoints:<br>
+<ul>
+<li><a href ="http://192.168.1.8:5000/api/recipe">http://192.168.1.8:5000/api/recipe(/id:optional)</a></li>
+<li><a href ="http://192.168.1.8:5000/api/ingridients">http://192.168.1.8:5000/api/ingridients(/id:optional)</a></li>
+<li><a href ="http://192.168.1.8:5000/api/register">http://192.168.1.8:5000/api/register</a></li>
+<li><a href ="http://192.168.1.8:5000/api/login">http://192.168.1.8:5000/api/login</a></li>
+<li><a href ="http://192.168.1.8:5000/api/users">http://192.168.1.8:5000/api/users(/id:optional)</a></li>
+<li><a href ="http://192.168.1.8:5000/api/feedback">http://192.168.1.8:5000/api/feedback/</a></li>
+<li><a href ="http://192.168.1.8:5000/api/recipe/feedback">http://192.168.1.8:5000/api/recipe/feedback(/id:optional)</a></li>
+</ul>
+Form-data and json requests are accepted. Access token required for most POST requests.
+<h2>Response</h2>
+The output of the API uses the JSON format.
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content%}
+<table>
+    <tr>
+        <th>Recipe</th>
+        <th>Ingridients</th>
+    </tr>
+{% for key, val in data.items() %}
+    <tr>
+        <td><a href="/recipe/{{key.replace(' ', '_')}}">{{ key.title() }}</a></td>
+        <td>
+        {% for ingridient in val %}
+        <a href="/search/{{ingridient.strip().replace(' ', '_')}}">{{ ingridient.strip().title() }}</a>
+            {% endfor %}
+        </td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock%}

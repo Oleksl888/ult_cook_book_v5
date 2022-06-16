@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content%}
+<table>
+    <tr>
+        <th style="text-align:center" colspan="5">Click on a recipe to see results</th>
+    </tr>
+{% for item in data.keys() %}
+    {% if loop.index0 == 0 or loop.index0 % 5 == 0 %}
+    <tr>
+        {% endif %}
+        <td><a href="/recipe/{{item.replace(' ', '_')}}">{{ item.title() }}</a></td>
+    {%if loop.index0 % 5 == 4 or loop.last %}
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+{% endblock%}
