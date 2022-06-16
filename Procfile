@@ -1,1 +1,1 @@
-web: python app.py $PORT
+web: python wsgi.py $PORT
