@@ -13,10 +13,8 @@ def geo_request():
     def ip_tracker():
         """This part is intentionally added for Heroku"""
         response = request.headers.get('X-Forwarded-For', '')
-        print('--------', response)
-        result = response.get("origin", None)
-        print('--------', result)
-        session['ip'] = result
+        print('This is the real clients ip address --------', response)
+        session['ip'] = response
         return result
 
     ip_address = ip_tracker()
