@@ -15,7 +15,7 @@ def geo_request():
         response = request.headers.get('X-Forwarded-For', '')
         print('This is the real clients ip address --------', response)
         session['ip'] = response
-        return result
+        return response
 
     ip_address = ip_tracker()
     if ip_address:
