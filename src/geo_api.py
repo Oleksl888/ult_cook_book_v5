@@ -2,7 +2,7 @@ import datetime
 import sqlite3
 
 import requests
-from flask import session
+from flask import session, request
 
 from src import db
 from src.models import Tracker
@@ -11,16 +11,19 @@ from src.models import Tracker
 def geo_request():
 
     def ip_tracker():
-        response = requests.get('https://api64.ipify.org?format=json').json()
-        result = response.get("ip", None)
+        """This part is intentionally added for Heroku"""
+        response = request.headers.get('X-Forwarded-For', '')
+        print('--------', response)
+        result = response.get("origin", None)
+        print('--------', result)
         session['ip'] = result
         return result
 
     ip_address = ip_tracker()
     if ip_address:
         url = 'http://ipwho.is/'
-        request = requests.get(url + ip_address)
-        return request.json()
+        _request = requests.get(url + ip_address)
+        return _request.json()
     return False
 
 

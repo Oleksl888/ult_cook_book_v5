@@ -7,7 +7,7 @@ from src import STATIC_PATH
 def flickr_request(query):
     url = 'https://api.flickr.com/services/rest/'
     api_key = os.environ.get('API_KEY', '')
-    params = {'api_key': '55967ec1dcab1572d9c16f3f807721b7', 'text': query, \
+    params = {'api_key': api_key, 'text': query, \
               'privacy_filter': 1, 'license': 3, 'content_type': 1, 'format': 'json', 'per_page': 1,
               "method": "flickr.photos.search", 'nojsoncallback': 1}
     request = requests.get(url, params=params)
