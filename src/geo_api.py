@@ -43,6 +43,7 @@ def make_response_geo_data(json_response, route):
         db.session.add(tracker)
         db.session.commit()
         print('Tracker added...')
+        return 'success'
 
 
 def return_unique_visitors():
