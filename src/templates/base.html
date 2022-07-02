@@ -5,67 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ultimate Cookbook</title>
     <link href="/static/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
-<header style="text-align:center; background-color:powderblue; font-size: 35px">
-WELCOME TO THE ULTIMATE COOKBOOK WEBSITE<br>
-    {% if info %}
-    <small>Hello dear guest from {{ info.city }}. It is a pleasure to have someone from
-                  {{ info.country }} {{ info.flag }} visiting our beautiful webpage.</small>
-    {% endif %}
+<body>
+<header>
+<h1>Ultimate Cookbook</h1>
 </header>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  font-color: black
-}
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
+<section class="banner">
+    <img src="static/banner.jpg" alt="ultimate cookbook welcome banner">
+</section>
+
 {% if not user %}
-<nav style="width:100%; font-size: 40px; font-style: italic; background-color: lightgray;">
-    <a href="/index.html" title="Go to the Main Page">Main Page</a>
-    <a href="/recepies.html" title="Go to see only recepies">Recepies</a>
-    <a href="/ingridients.html" title="Go to see all the ingridients">Ingridients</a>
-    <a href="/search.html" title="Go to Search Recipe or Ingridient">Search</a>
-    <a href="/gallery.html" title="Go to the Photo Gallery">Gallery</a>
-    <a href="/feedback.html" title="Leave some feedback">Feedback</a>
-    <a href="/register.html" title="Register here">Register</a>
-    <a href="/login.html" title="Login here">Login</a>
-    <a href="/api.html" title="Use API">API</a>
+<nav class="nav-unregistered">
+    <ul>
+    <li><a href="/index.html" title="Go to the Main Page">Main Page</a></li>
+    <li><a href="/recepies.html" title="Go to see only recipes">Recipes</a></li>
+    <li><a href="/ingridients.html" title="Go to see all the ingredients">Ingredients</a></li>
+    <li><a href="/search.html" title="Go to Search Recipe or Ingredient">Search</a></li>
+    <li><a href="/gallery.html" title="Go to the Photo Gallery">Gallery</a></li>
+    <li><a href="/feedback.html" title="Leave some feedback">Feedback</a></li>
+    <li><a href="/register.html" title="Register here">Register</a></li>
+    <li><a href="/login.html" title="Login here">Login</a></li>
+    <li><a href="/api.html" title="Use API">API</a></li>
+    </ul>
     </nav>
     {% else %}
-<nav style="width:100%; font-size: 40px; font-style: italic; background-color: yellow;">
-    <a href="/index.html" title="Go to the Main Page">Hello, {{ user }}</a>
-    <a href="/recepies.html" title="Go to see only recepies">Recepies</a>
-    <a href="/ingridients.html" title="Go to see all the ingridients">Ingridients</a>
-    <a href="/search.html" title="Go to Search Recipe or Ingridient">Search</a>
-    <a href="/gallery.html" title="Go to the Photo Gallery">Gallery</a>
-    <a href="/feedback.html" title="Leave some feedback">Feedback</a>
-    <a href="/profile.html" title="View your profile">User Profile</a>
-    <a href="/login.html" title="Login here">Logout</a>
-    <a href="/api.html" title="Use API">API</a>
+<nav class="nav-registered">
+    <ul>
+    <li><a href="/index.html" title="Go to the Main Page">Hello, {{ user }}</a></li>
+    <li><a href="/recepies.html" title="Go to see only recipes">Recipes</a></li>
+    <li><a href="/ingridients.html" title="Go to see all the ingredients">Ingredients</a></li>
+    <li><a href="/search.html" title="Go to Search Recipe or Ingredient">Search</a></li>
+    <li><a href="/gallery.html" title="Go to the Photo Gallery">Gallery</a></li>
+    <li><a href="/feedback.html" title="Leave some feedback">Feedback</a></li>
+    <li><a href="/profile.html" title="View your profile">User Profile</a></li>
+    <li><a href="/login.html" title="Login here">Logout</a></li>
+    <li><a href="/api.html" title="Use API">API</a></li>
+    </ul>
 </nav>
     {% endif %}
 
-<body>
-<h3 style="color: red">
+<main>
+<h3 class="flashes">
 {% for message in get_flashed_messages() %}
   {{ message }}
   {% endfor %}
 </h3>
+
+<div class="welcome">
+
+</div>
+
 {% block content %} {% endblock %}
-    {% if visits %}
+</main>
 <footer>
-    <b style="color: green">So far {{ visits }} unique visitors has been to this website!</b>
-</footer>
+    {% if visits %}
+    <b style="color: green">So far {{ visits }} unique visitors has been to this website!</b><br>
     {% endif %}
+    {% if info %}
+    <small>Hello dear guest from {{ info.city }}. It is a pleasure to have someone from
+                  {{ info.country }} {{ info.flag }} visiting our beautiful webpage.</small>
+    {% endif %}
+</footer>
+
 </body>
 </html>
