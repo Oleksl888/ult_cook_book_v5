@@ -1,10 +1,11 @@
 import datetime
+import os
 import sqlite3
 
 import requests
 from flask import session, request
 
-from src import db
+from src import db, DATA_PATH
 from src.models import Tracker
 
 
@@ -48,10 +49,10 @@ def make_response_geo_data(json_response, route):
 
 def return_unique_visitors():
     try:
-        db = sqlite3.connect('data/db.sqlite3')
+        db = sqlite3.connect(os.path.join(DATA_PATH, 'cook.db'))
         count = db.execute('SELECT COUNT(DISTINCT ipaddress) FROM iptracker').fetchone()
         print(count)
-    except sqlite3.DatabaseError:
+    except (FileNotFoundError, sqlite3.DatabaseError):
         return False
     else:
         db.close()
