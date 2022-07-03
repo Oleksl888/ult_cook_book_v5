@@ -383,7 +383,7 @@ def load_recipe(page_name):
         data = request.form
         response = feedback_saver(data, name)
         if response == 'success':
-            flash('Feedback added succesffully')
+            flash('Feedback added succesfully')
             return redirect(url_for('load_recipe', page_name=page_name, user=session.get('username', '')))
         flash('Could not add Feedback')
         return redirect(url_for('load_recipe', page_name=page_name, user=session.get('username', '')))

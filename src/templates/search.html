@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Search Form</h2>
+<h2 class="api-reg">Enter the name of desired recipe or ingredient below </h2>
 <form action="/search.html" method="post">
-  <label for="search">First name:</label><br>
-  <input type="text" id="search" name="search" value="Try searching for barbecue" autofocus required><br><br>
+  <label for="search">Enter search query and press Submit:</label><br>
+  <input type="text" id="search" name="search" value="" placeholder="Try searching for barbecue" autofocus required><br><br>
   <input type="submit" value="Submit">
 </form>
 {% endblock %}

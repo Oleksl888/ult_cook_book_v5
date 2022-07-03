@@ -1,37 +1,36 @@
 {% extends 'base.html' %}
 {% block content%}
-<div>
-    <h1 style="text-align:center">
+<article>
+    <h1>
         {{ title }}
     </h1>
-</div>
-<aside style="width:30%; float:right">
-    <img src="{{ url_for('static', filename=image) }}">
+<aside>
+  <img src="{{ url_for('static', filename=image) }}">
 </aside>
-<section style="width:70%; float: left; font-family: arial, sans-serif; font-size: 20px">
-    {{ recipe }}<br>
-</section>
-<section style="width:70%; float: left; font-family: arial, sans-serif; font-size: 20px">
-    {% if user %}
-        <h2>Leave your feedback in the form below</h2>
+  <p>{{ recipe }}</p>
+</article>
+
+<article>
+{% if user %}
+    <h2>Leave your feedback in the form below</h2>
 <form action="/recipe/{{ pname }}" method="post">
   <input type="hidden" name="fname" value="{{ user }}"><br>
   <label for="msg">Enter message and it will be displayed on site:</label><br>
-  <textarea id="msg" name="messg" rows="10" cols="30" placeholder="Some text here" required></textarea><br><br>
+  <textarea id="msg" name="messg" rows="10" cols="100%" placeholder="Some text here" required></textarea><br><br>
   <input type="submit" value="Submit">
 </form>
     {% else %}
     <h2 style="color: blue">Please <a href="{{ url_for('register') }}">register</a> or <a href="{{ url_for('login') }}">login</a> to leave a comment</h2>
     {% endif %}
-<h3>Previous Feedback for {{ title }}:</h3>
+<h2>Previous Feedback for {{ title }}:</h2>
 {% if comments is string %}
 {{ comments }}
 {% elif comments is sequence %}
 {% for entry in comments %}
-<div><b>{{ entry[0] }} said on <small>{{ entry[2] }}</small>:</b><br> {{ entry[1] }} </div><br>
+    <p>{{ entry[0] }} said on <small>{{ entry[2] }}</small>:<br> {{ entry[1] }} </p>
 {% endfor %}
 {% else %}
 <h3>Something strange has happened</h3>
 {% endif %}
-</section>
-{% endblock%}
+</article>
+{% endblock %}

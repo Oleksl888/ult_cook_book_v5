@@ -12,7 +12,7 @@
 <h1>Ultimate Cookbook</h1>
 </header>
 <section class="banner">
-    <img src="static/banner.jpg" alt="ultimate cookbook welcome banner">
+    <img src="{{ url_for('static', filename='banner.jpg') }}">
 </section>
 
 {% if not user %}
@@ -52,19 +52,20 @@
   {% endfor %}
 </h3>
 
-<div class="welcome">
-
-</div>
 
 {% block content %} {% endblock %}
 </main>
 <footer>
     {% if visits %}
-    <b style="color: green">So far {{ visits }} unique visitors has been to this website!</b><br>
+    <p style="color: green">So far {{ visits }} unique visitors has been to this website!</p>
+    {% else %}
+    <p style="color: red">Could not grab visitor statistics</p>
     {% endif %}
     {% if info %}
-    <small>Hello dear guest from {{ info.city }}. It is a pleasure to have someone from
-                  {{ info.country }} {{ info.flag }} visiting our beautiful webpage.</small>
+    <p style="color: green"><small>Hello dear guest from {{ info.city }}. It is a pleasure to have someone from
+                  {{ info.country }} {{ info.flag }} visiting our beautiful webpage.</small></p>
+    {% else %}
+    <p style="color: red">Could not track visitor location</p>
     {% endif %}
 </footer>
 

@@ -2,14 +2,14 @@
 {% block content %}
 <table>
     <tr>
-        <th style="text-align:center" colspan="3">See the images that has been stored locally</th>
+        <th style="text-align:center" colspan="2">See the images that has been stored locally</th>
     </tr>
 {% for item in data %}
-    {% if loop.index0 == 0 or loop.index0 % 3 == 0 %}
+    {% if loop.index0 == 0 or loop.index0 % 2 == 0 %}
     <tr>
         {% endif %}
         <td style="text-align:center"><b>{{ item[1] }}</b><br><img src="{{ url_for('static', filename=item[0]) }}"></td>
-    {%if loop.index0 % 3 == 2 or loop.last %}
+    {%if loop.index0 % 2 == 1 or loop.last %}
     </tr>
     {% endif %}
     {% endfor %}

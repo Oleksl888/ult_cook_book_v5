@@ -88,7 +88,23 @@ def load_recipe_from_file(name):
                     line = file.readline()
                     read_recipe += line
                 return read_recipe
-    return 'The recipe is unavailable'
+    return '''
+The recipe is unavailable
+Рецепт не знайдено
+ʻaʻole i loaʻa ka meaʻai
+Oideas gan aimsiú
+Ricetta non trovata
+Receta no encontrada
+找不到食谱
+레시피를 찾을 수 없습니다
+Te tunu kaore i kitea
+कृती सापडली नाही
+Recept niet gevonden
+Rezept nicht gefunden
+Nie znaleziono przepisu
+Рецепт не найден
+Recette introuvable
+    '''
 
 
 def make_search(keyword):

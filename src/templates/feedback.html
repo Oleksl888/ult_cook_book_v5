@@ -1,21 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
+<article>
 <h2>Leave your feedback in the form below</h2>
 <form action="/feedback.html" method="post">
   <label for="name">Enter your name here:</label><br>
   <input type="text" id="name" name="fname" placeholder="Alex" value="" autofocus required><br>
   <label for="msg">Enter message and it will be displayed on site:</label><br>
-  <textarea id="msg" name="messg" rows="10" cols="30" placeholder="Some text here" required></textarea><br><br>
+  <textarea id="msg" name="messg" rows="10" cols="100%" placeholder="Some text here" required></textarea><br><br>
   <input type="submit" value="Submit">
 </form>
-<h3>Previous Feedback:</h3>
+<h2>Previous Feedback:</h2>
 {% if data is string %}
 {{ data }}
 {% elif data is sequence %}
 {% for entry in data %}
-<div><b>{{ entry[1] }} said on <small>{{ entry[3] }}</small>>:</b><br> {{ entry[2]}} </div><br>
+<p>{{ entry[1] }} said on <small>{{ entry[3] }}</small>>:<br> {{ entry[2]}} </p>
 {% endfor %}
 {% else %}
 <h3>Something strange has happened</h3>
 {% endif %}
+  </article>
 {% endblock %}

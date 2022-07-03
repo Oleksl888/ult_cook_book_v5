@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if not user %}
-<h2 style="text-align: center">Login for full user experience from Ultimate cookbook</h2>
-<form style="text-align: center" action="/login.html" method="post">
+<h2 class="api-reg">Login for full user experience from Ultimate cookbook</h2>
+<form action="/login.html" method="post">
   <label for="name">Enter your name here:</label><br>
   <input type="text" id="name" name="name" placeholder="Alex" value="" autofocus required><br>
     <label for="password">Enter Password:</label><br>
@@ -10,7 +10,7 @@
   <input type="submit" value="Login">
 </form>
 {% else %}
-<h2 style="text-align: center">You are logged in as {{ user }}</h2>
+<h2 class="api-reg">You are logged in as {{ user }}</h2>
 <form style="text-align: center" action="/logout" method="post">
   <input type="submit" value="Logout">
 </form>
